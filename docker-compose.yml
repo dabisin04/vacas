@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_container_vacas
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vacas
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data_vacas:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: backend_vacas
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: vacas
+    ports:
+      - "5001:5050"
+    volumes:
+      - ./app:/app
+
+volumes:
+  mysql_data_vacas:

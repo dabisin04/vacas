@@ -1,5 +1,5 @@
 from flask import Flask
-from config.db import app as flask_app, db  # ⬅️ Renombramos el objeto importado
+from app.config.db import app as flask_app, db  # ⬅️ Renombramos el objeto importado
 from flask_migrate import upgrade
 
 # 📦 Importar Blueprints necesarios

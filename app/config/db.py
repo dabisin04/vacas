@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from flask_migrate import Migrate
+from flask_migrate import Migrate, upgrade
 
 # Crear instancia de Flask
 app = Flask(__name__)
@@ -26,3 +26,7 @@ app.secret_key = os.getenv('SECRET_KEY', 'valor_predeterminado_inseguro')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 migrate = Migrate(app, db)
+
+@app.before_first_request
+def apply_migrations():
+    upgrade()

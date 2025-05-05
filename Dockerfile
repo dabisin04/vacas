@@ -18,4 +18,5 @@ ENV PYTHONPATH=/app
 
 EXPOSE 5050
 
-CMD ["gunicorn", "--workers=4", "--bind", "0.0.0.0:5050", "app:app"]
+CMD ["gunicorn", "--workers=4", "--bind", "0.0.0.0:5050", "app.app:app"]
+

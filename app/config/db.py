@@ -7,16 +7,20 @@ from flask_migrate import Migrate
 # Crear instancia de Flask
 app = Flask(__name__)
 
-# Obtener URL completa desde Railway y ajustarla para SQLAlchemy
+# Obtener y transformar la URL de la base de datos
 raw_url = os.getenv('DATABASE_URL', '')
-db_url = raw_url.replace('mysql://', 'mysql+pymysql://', 1)
+if not raw_url:
+    raise RuntimeError("DATABASE_URL no está definida en el entorno. Verifica Railway.")
 
-# Configuración SQLAlchemy
+# Asegurar compatibilidad con SQLAlchemy + PyMySQL
+db_url = raw_url.replace("mysql://", "mysql+pymysql://", 1)
+
+# Configuración de SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Clave secreta personalizada (la defines tú)
-app.secret_key = os.getenv('SECRET_KEY')
+# Clave secreta definida por el usuario en Railway
+app.secret_key = os.getenv('SECRET_KEY', 'valor_predeterminado_inseguro')
 
 # Inicializar extensiones
 db = SQLAlchemy(app)

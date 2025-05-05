@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.peso import Peso, PesoSchema
+from app.config.db import db
+from app.models.peso import Peso, PesoSchema
 from datetime import datetime
 import traceback
 

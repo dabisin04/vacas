@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.usuario_finca import UsuarioFinca, UsuarioFincaSchema
+from app.config.db import db
+from app.models.usuario_finca import UsuarioFinca, UsuarioFincaSchema
 import traceback
 
 ruta_usuario_finca = Blueprint("route_usuario_finca", __name__)

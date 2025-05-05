@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.vacuna import Vacuna, VacunaSchema
+from app.config.db import db
+from app.models.vacuna import Vacuna, VacunaSchema
 import traceback
 
 ruta_vacuna = Blueprint("route_vacuna", __name__)

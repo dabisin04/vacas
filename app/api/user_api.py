@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.user import Usuario, UsuarioSchema
+from app.config.db import db
+from app.models.user import Usuario, UsuarioSchema
 from datetime import datetime
 import traceback
 

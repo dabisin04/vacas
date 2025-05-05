@@ -1,4 +1,4 @@
-from config.db import db, ma
+from app.config.db import db, ma
 from datetime import datetime
 import uuid
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.farm import Farm, FarmSchema
+from app.config.db import db
+from app.models.farm import Farm, FarmSchema
 from datetime import datetime
 import traceback
 

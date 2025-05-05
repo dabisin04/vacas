@@ -1,7 +1,7 @@
 import traceback
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.animal import Animal, AnimalSchema
+from app.config.db import db
+from app.models.animal import Animal, AnimalSchema
 from datetime import datetime
 import uuid
 

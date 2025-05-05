@@ -1,17 +1,17 @@
 from flask import Flask
-from config.db import app as flask_app, db  # ⬅️ Renombramos el objeto importado
+from app.config.db import app as flask_app, db  # ⬅️ Renombramos el objeto importado
 
 # 📦 Importar Blueprints necesarios
-from api.user_api import ruta_usuario
-from api.animal_api import ruta_animal
-from api.farm_api import ruta_farm
-from api.chequeo_salud_api import ruta_chequeo
-from api.evento_reproductivo_api import ruta_evento
-from api.peso_api import ruta_peso
-from api.produccion_api import ruta_produccion
-from api.tratamiento_api import ruta_tratamiento
-from api.usuario_finca_api import ruta_usuario_finca
-from api.vacunas_api import ruta_vacuna
+from app.api.user_api import ruta_usuario
+from app.api.animal_api import ruta_animal
+from app.api.farm_api import ruta_farm
+from app.api.chequeo_salud_api import ruta_chequeo
+from app.api.evento_reproductivo_api import ruta_evento
+from app.api.peso_api import ruta_peso
+from app.api.produccion_api import ruta_produccion
+from app.api.tratamiento_api import ruta_tratamiento
+from app.api.usuario_finca_api import ruta_usuario_finca
+from app.api.vacunas_api import ruta_vacuna
 
 # 👇 Asignamos el nombre correcto que gunicorn busca
 app = flask_app

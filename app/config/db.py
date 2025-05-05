@@ -26,7 +26,3 @@ app.secret_key = os.getenv('SECRET_KEY', 'valor_predeterminado_inseguro')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 migrate = Migrate(app, db)
-
-@app.before_first_request
-def apply_migrations():
-    upgrade()

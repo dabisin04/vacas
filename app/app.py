@@ -1,5 +1,6 @@
 from flask import Flask
 from app.config.db import app as flask_app, db  # ⬅️ Renombramos el objeto importado
+from flask_migrate import upgrade
 
 # 📦 Importar Blueprints necesarios
 from app.api.user_api import ruta_usuario
@@ -27,6 +28,9 @@ app.register_blueprint(ruta_produccion, url_prefix="/api")
 app.register_blueprint(ruta_tratamiento, url_prefix="/api")
 app.register_blueprint(ruta_usuario_finca, url_prefix="/api")
 app.register_blueprint(ruta_vacuna, url_prefix="/api")
+
+with flask_app.app_context():
+    upgrade()
 
 # 🏠 Ruta principal
 @app.route("/")

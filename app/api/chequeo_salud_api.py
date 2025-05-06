@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.chequeos_salud import ChequeoSalud, ChequeoSaludSchema
+from app.config.db import db
+from app.models.chequeos_salud import ChequeoSalud, ChequeoSaludSchema
 from datetime import datetime
 import traceback
 

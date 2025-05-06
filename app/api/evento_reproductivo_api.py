@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from config.db import db
-from models.evento_reproductivo import EventoReproductivo, EventoReproductivoSchema
+from app.config.db import db
+from app.models.evento_reproductivo import EventoReproductivo, EventoReproductivoSchema
 from datetime import datetime
 import traceback
 
